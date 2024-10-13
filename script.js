@@ -117,7 +117,7 @@ const handleSubmit = async (e) => {
     
     return text.trim();  
   }
-  const response = await fetch('https://serever-side-production.up.railway.app/chats', {
+  const response = await fetch('http://serever-side-production.up.railway.app/chats', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ const handleSubmit = async (e) => {
 };
 
 async function loadChatHistory() {
-  const response = await fetch(`https://serever-side-production.up.railway.app/chat-history/${userId}`);
+  const response = await fetch(`http://serever-side-production.up.railway.app/chat-history/${userId}`);
   if (response.ok) {
     const data = await response.json();
     if (data.chats && data.chats.length > 0) {
@@ -163,7 +163,7 @@ Uploadform.addEventListener('submit', async (event) => {
 
   const formData = new FormData(Uploadform);
   try {
-    const response = await fetch(`https://serever-side-production.up.railway.app/upload/${userId}`, {
+    const response = await fetch(`http://serever-side-production.up.railway.app/upload/${userId}`, {
       method: 'POST',
       body: formData,
     });
